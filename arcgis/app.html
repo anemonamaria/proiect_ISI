@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.25/"></script>
+
+    <script>
+      require(["esri/config", 
+        "esri/Map", 
+        "esri/views/MapView", 
+        "esri/Graphic",
+        "esri/layers/GraphicsLayer",
+        "esri/layers/CSVLayer",
+        "esri/Color",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/renderers/SimpleRenderer"], 
+    function(esriConfig, Map, MapView, Graphic, GraphicsLaye, CSVLayer, Color, SimpleMarkerSymbol, SimpleRenderer) {
+
+        esriConfig.apiKey = "AAPK02919048ebed47338bfbd0abf428e9e8GryYyuFVKCFW6iZiZ0-5PWjbHZ3O7E1aaHxNRrgJKoFe7de1tPC773rKuhEJAFcb";
+
+        const map = new Map({
+          basemap: "arcgis-topographic" // Basemap layer service
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [ 4.897070, 52.377956], // Longitude, latitude
+          zoom: 13, // Zoom level
+          container: "viewDiv" // Div element
+        });
+
+        // const graphicsLayer = new GraphicsLayer();
+        // map.add(graphicsLayer);
+
+        csv = new CSVLayer("D:\ACS-CTI\anul4\sem1\isi\proiect\amsteram-locations.csv", {
+          copyright: "ISI PROJECT"
+        });
+        var orangeRed = new Color([238, 69, 0, 0.5]); // hex is #ff4500
+        var marker = new SimpleMarkerSymbol("solid", 15, null, orangeRed);
+        var renderer = new SimpleRenderer(marker);
+        // csv.setRenderer(renderer);
+        //  todo add layer
+        map.addLayer(csv);
+      });
+    </script>
+
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

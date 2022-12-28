@@ -1,0 +1,620 @@
+{
+  "userTypes": [
+    {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "TRANSPORTATOR"
+    },
+    {
+      "id": 3,
+      "name": "EXPEDITOR"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "$2a$10$6DK2WsG64sNurEK.atgAGeDa78.mqh2Eby9fdFod6ixt0z.fAZjbW",
+      "userType": {
+        "id": 1,
+        "name": "ADMIN"
+      },
+      "customers": []
+    },
+    {
+      "id": 2,
+      "username": "transportator",
+      "password": "$2a$10$LtV5xzB4xv.sOnlhpQjp3eqEw9XJfZM4YZIYt3wOd01ms0cDXTrqq",
+      "userType": {
+        "id": 2,
+        "name": "TRANSPORTATOR"
+      },
+      "customers": [
+        {
+          "id": 1,
+          "name": "IDM Club"
+        },
+        {
+          "id": 2,
+          "name": "Damen Shipyard"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "username": "expeditor",
+      "password": "$2a$10$G3wdnFFB5Cd51eLHFnIMpeBr54mwM2.a28d8IfqznfJWTb9z6G3Oq",
+      "userType": {
+        "id": 3,
+        "name": "EXPEDITOR"
+      },
+      "customers": [
+        {
+          "id": 3,
+          "name": "Ana Hotels"
+        }
+      ]
+    }
+  ],
+  "trucks": [
+    {
+      "id": 1,
+      "brand": "Mercedes",
+      "volume": 21000,
+      "length": 8.2,
+      "width": 4.2,
+      "height": 4,
+      "weight": 30.7,
+      "emptyPrice": 2,
+      "fullPrice": 8,
+      "image": "actros.jpg",
+      "tag": [
+        "electronice",
+        "autoturisme",
+        "mobila"
+      ]
+    },
+    {
+      "id": 2,
+      "brand": "Scania",
+      "volume": 22200,
+      "length": 8.7,
+      "width": 4,
+      "height": 4.2,
+      "weight": 35.5,
+      "emptyPrice": 1,
+      "fullPrice": 7,
+      "image": "scania.jpg",
+      "tag": [
+        "utilaje"
+      ]
+    },
+    {
+      "id": 3,
+      "brand": "Renault",
+      "volume": 25000,
+      "length": 10,
+      "width": 4,
+      "height": 3,
+      "weight": 20,
+      "emptyPrice": 1,
+      "fullPrice": 2,
+      "image": "renault.jpeg"
+    }
+  ],
+  "storageTypes": [
+    {
+      "id": 1,
+      "name": "mobila"
+    },
+    {
+      "id": 2,
+      "name": "animale"
+    },
+    {
+      "id": 3,
+      "name": "alimente"
+    },
+    {
+      "id": 4,
+      "name": "echipamente medicale"
+    },
+    {
+      "id": 5,
+      "name": "autoturisme"
+    },
+    {
+      "id": 6,
+      "name": "electronice"
+    },
+    {
+      "id": 7,
+      "name": "utilaje"
+    },
+    {
+      "id": 8,
+      "name": "materiale construcții"
+    },
+    {
+      "id": 9,
+      "name": "piese auto"
+    },
+    {
+      "id": 10,
+      "name": "transport colete"
+    }
+  ],
+  "storages": [
+    {
+      "id": 1,
+      "weight": 1.5,
+      "volume": 1245,
+      "storageType": {
+        "id": 7,
+        "name": "utilaje"
+      }
+    },
+    {
+      "id": 2,
+      "weight": 1.25,
+      "volume": 635,
+      "storageType": {
+        "id": 4,
+        "name": "echipamente medicale"
+      }
+    },
+    {
+      "id": 3,
+      "weight": 2.56,
+      "volume": 800,
+      "storageType": {
+        "id": 6,
+        "name": "electronice"
+      }
+    },
+    {
+      "id": 4,
+      "weight": 12.5,
+      "volume": 1200,
+      "storageType": {
+        "id": 10,
+        "name": "transport colete"
+      }
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "IDM Club"
+    },
+    {
+      "id": 2,
+      "name": "Damen Shipyard"
+    },
+    {
+      "id": 3,
+      "name": "Ana Hotels"
+    }
+  ],
+  "offers": [
+    {
+      "id": 2,
+      "customer": {
+        "id": 2,
+        "name": "Damen Shipyard"
+      },
+      "truck": {
+        "id": 2,
+        "brand": "Scania",
+        "volume": 22200,
+        "length": 8.7,
+        "width": 4,
+        "height": 4.2,
+        "weight": 35.5,
+        "emptyPrice": 1,
+        "fullPrice": 7,
+        "image": "scania.jpg",
+        "tag": [
+          "utilaje"
+        ]
+      },
+      "departureDate": "2022-01-12T06:49:28.262Z",
+      "departurePlace": "Santierul Naval Galati",
+      "detail": "Utilaje"
+    },
+    {
+      "id": 3,
+      "customer": {
+        "id": 1,
+        "name": "IDM Club"
+      },
+      "truck": {
+        "id": 2,
+        "brand": "Scania",
+        "volume": 22200,
+        "length": 8.7,
+        "width": 4,
+        "height": 4.2,
+        "weight": 35.5,
+        "emptyPrice": 1,
+        "fullPrice": 7,
+        "image": "scania.jpg",
+        "tag": [
+          "utilaje"
+        ]
+      },
+      "departureDate": "2022-01-14T01:00:00.262Z",
+      "departurePlace": "Cora Lujerului",
+      "detail": "utilaje"
+    },
+    {
+      "id": 4,
+      "customer": {
+        "id": 1,
+        "name": "IDM Club"
+      },
+      "truck": {
+        "id": 1,
+        "brand": "Mercedes",
+        "volume": 21000,
+        "length": 8.2,
+        "width": 4.2,
+        "height": 4,
+        "weight": 30.7,
+        "emptyPrice": 2,
+        "fullPrice": 8,
+        "image": "actros.jpg",
+        "tag": [
+          "electronice",
+          "autoturisme",
+          "mobila"
+        ]
+      },
+      "departureDate": "2022-01-20T13:25:29.571Z",
+      "departurePlace": "Cora Lujerului",
+      "detail": "electronice"
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "storage": {
+        "id": 1,
+        "weight": 1.5,
+        "volume": 1245,
+        "storageType": {
+          "id": 7,
+          "name": "utilaje"
+        }
+      },
+      "maxDepartureDate": "2022-01-12T05:00:00.841Z",
+      "maxArriveDate": "2022-01-12T17:00:00.841Z",
+      "leavingPlace": "Cora Lujerului",
+      "arrivingPlace": "Poiana Brasov Hotel Sport",
+      "detail": "detail"
+    }
+  ],
+  "shipments": [
+    {
+      "id": 1,
+      "truck": {
+        "id": 1,
+        "brand": "Mercedes",
+        "volume": 21000,
+        "length": 8.2,
+        "width": 4.2,
+        "height": 4,
+        "weight": 30.7,
+        "emptyPrice": 2,
+        "fullPrice": 8,
+        "image": "actros.jpg",
+        "tag": [
+          "electronice",
+          "autoturisme",
+          "mobila"
+        ]
+      },
+      "customer": {
+        "id": 3,
+        "name": "Ana Hotels"
+      },
+      "storage": {
+        "id": 4,
+        "weight": 12.5,
+        "volume": 1200,
+        "storageType": {
+          "id": 10,
+          "name": "transport colete"
+        }
+      },
+      "dateStart": "2022-01-13T08:00:00.850Z",
+      "addressStart": "Aeroport Otopeni",
+      "locationStart": {
+        "x": 26.076100000000054,
+        "y": 44.56907000000007
+      },
+      "dateStop": "2022-01-13T23:00:00.183Z",
+      "addressStop": "Hotel Iaki",
+      "locationStop": {
+        "x": 28.621890000000064,
+        "y": 44.24363000000005
+      },
+      "distance": 247.127,
+      "price": 1977
+    },
+    {
+      "id": 2,
+      "truck": {
+        "id": 2,
+        "brand": "Scania",
+        "volume": 22200,
+        "length": 8.7,
+        "width": 4,
+        "height": 4.2,
+        "weight": 35.5,
+        "emptyPrice": 1,
+        "fullPrice": 7,
+        "image": "scania.jpg",
+        "tag": [
+          "utilaje"
+        ]
+      },
+      "customer": {
+        "id": 1,
+        "name": "IDM Club"
+      },
+      "storage": {
+        "id": 1,
+        "weight": 1.5,
+        "volume": 1245,
+        "storageType": {
+          "id": 7,
+          "name": "utilaje"
+        }
+      },
+      "dateStart": "2022-01-20T06:00:00.011Z",
+      "addressStart": "IDM Club",
+      "locationStart": {
+        "x": 26.049310000000048,
+        "y": 44.44497000000007
+      },
+      "dateStop": "2022-01-21T23:00:00.590Z",
+      "addressStop": "Budapest Gym Club",
+      "locationStop": {
+        "x": 19.055080000000032,
+        "y": 47.49972000000008
+      },
+      "distance": 830.643,
+      "price": 6645
+    },
+    {
+      "id": 3,
+      "truck": {
+        "id": 1,
+        "brand": "Mercedes",
+        "volume": 21000,
+        "length": 8.2,
+        "width": 4.2,
+        "height": 4,
+        "weight": 30.7,
+        "emptyPrice": 2,
+        "fullPrice": 8,
+        "image": "actros.jpg",
+        "tag": [
+          "electronice",
+          "autoturisme",
+          "mobila"
+        ]
+      },
+      "customer": {
+        "id": 2,
+        "name": "Damen Shipyard"
+      },
+      "storage": {
+        "id": 1,
+        "weight": 1.5,
+        "volume": 1245,
+        "storageType": {
+          "id": 7,
+          "name": "utilaje"
+        }
+      },
+      "dateStart": "2022-01-12T10:00:00.678Z",
+      "addressStart": "Galati Santierul Naval Damen",
+      "locationStart": {
+        "x": 28.08233000000007,
+        "y": 45.44383000000005
+      },
+      "dateStop": "2022-01-12T22:00:00.534Z",
+      "addressStop": "Oltenita Santierul Naval",
+      "locationStop": {
+        "x": 26.63948000000005,
+        "y": 44.09613000000007
+      },
+      "distance": 231.509,
+      "price": 1852
+    },
+    {
+      "id": 4,
+      "truck": {
+        "id": 2,
+        "brand": "Scania",
+        "volume": 22200,
+        "length": 8.7,
+        "width": 4,
+        "height": 4.2,
+        "weight": 35.5,
+        "emptyPrice": 1,
+        "fullPrice": 7,
+        "image": "scania.jpg",
+        "tag": [
+          "utilaje"
+        ]
+      },
+      "customer": {
+        "id": 3,
+        "name": "Ana Hotels"
+      },
+      "storage": {
+        "id": 2,
+        "weight": 1.25,
+        "volume": 635,
+        "storageType": {
+          "id": 4,
+          "name": "echipamente medicale"
+        }
+      },
+      "dateStart": "2022-01-12T07:30:00.000Z",
+      "addressStart": "Cora Lujerului",
+      "locationStart": {
+        "x": 26.036710000000028,
+        "y": 44.43321000000003
+      },
+      "dateStop": "2022-01-12T22:00:00.350Z",
+      "addressStop": "Poiana Brasov Hotel Teleferic",
+      "locationStop": {
+        "x": 25.55189000000007,
+        "y": 45.58935000000008
+      },
+      "distance": 174.896,
+      "price": 1399
+    },
+    {
+      "id": 5,
+      "truck": {
+        "id": 3,
+        "brand": "Renault",
+        "volume": 25000,
+        "length": 10,
+        "width": 4,
+        "height": 3,
+        "weight": 20,
+        "emptyPrice": 1,
+        "fullPrice": 2,
+        "image": "renault.jpeg"
+      },
+      "customer": {
+        "id": 2,
+        "name": "Damen Shipyard"
+      },
+      "storage": {
+        "id": 3,
+        "weight": 2.56,
+        "volume": 800,
+        "storageType": {
+          "id": 6,
+          "name": "electronice"
+        }
+      },
+      "dateStart": "2022-01-20T07:00:00.591Z",
+      "addressStart": "Romania Bucharest Gara de Nord",
+      "locationStart": {
+        "x": 26.07507000000004,
+        "y": 44.445610000000045
+      },
+      "dateStop": "2022-01-20T11:00:00.360Z",
+      "addressStop": "Brasov Gara",
+      "locationStop": {
+        "x": 25.458520000000078,
+        "y": 45.59498000000008
+      },
+      "distance": 169.407,
+      "price": 339
+    },
+    {
+      "id": 6,
+      "truck": {
+        "id": 1,
+        "brand": "Mercedes",
+        "volume": 21000,
+        "length": 8.2,
+        "width": 4.2,
+        "height": 4,
+        "weight": 30.7,
+        "emptyPrice": 2,
+        "fullPrice": 8,
+        "image": "actros.jpg",
+        "tag": [
+          "electronice",
+          "autoturisme",
+          "mobila"
+        ]
+      },
+      "customer": {
+        "id": 2,
+        "name": "Damen Shipyard"
+      },
+      "storage": {
+        "id": 2,
+        "weight": 1.25,
+        "volume": 635,
+        "storageType": {
+          "id": 4,
+          "name": "echipamente medicale"
+        }
+      },
+      "dateStart": "2022-01-11T15:46:36.710Z",
+      "addressStart": "Bucuresti Colentina",
+      "locationStart": {
+        "x": 26.12533745622168,
+        "y": 44.45061659880209
+      },
+      "dateStop": "2022-01-12T06:39:55.037Z",
+      "addressStop": "Bucuresti Metro Militari",
+      "locationStop": {
+        "x": 25.987240000000043,
+        "y": 44.435290000000066
+      },
+      "distance": 12.361,
+      "price": 99
+    },
+    {
+      "id": 7,
+      "truck": {
+        "id": 2,
+        "brand": "Scania",
+        "volume": 22200,
+        "length": 8.7,
+        "width": 4,
+        "height": 4.2,
+        "weight": 35.5,
+        "emptyPrice": 1,
+        "fullPrice": 7,
+        "image": "scania.jpg",
+        "tag": [
+          "utilaje"
+        ]
+      },
+      "customer": {
+        "id": 2,
+        "name": "Damen Shipyard"
+      },
+      "storage": {
+        "id": 2,
+        "weight": 1.25,
+        "volume": 635,
+        "storageType": {
+          "id": 4,
+          "name": "echipamente medicale"
+        }
+      },
+      "dateStart": "2022-01-12T03:00:00.186Z",
+      "addressStart": "Bucuresti Plaza Romania",
+      "locationStart": {
+        "x": 26.03490000000005,
+        "y": 44.42797000000007
+      },
+      "dateStop": "2022-01-12T11:00:00.083Z",
+      "addressStop": "Strada Cupolei Nr 7 Bucuresti ",
+      "locationStop": {
+        "x": 26.031030028141572,
+        "y": 44.43164998871816
+      },
+      "distance": 1.212,
+      "price": 8
+    }
+  ]
+}
