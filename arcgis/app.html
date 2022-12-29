@@ -24,11 +24,8 @@
         "esri/views/MapView", 
         "esri/Graphic",
         "esri/layers/GraphicsLayer",
-        "esri/layers/CSVLayer",
-        "esri/Color",
-        "esri/symbols/SimpleMarkerSymbol",
-        "esri/renderers/SimpleRenderer"], 
-    function(esriConfig, Map, MapView, Graphic, GraphicsLaye, CSVLayer, Color, SimpleMarkerSymbol, SimpleRenderer) {
+        "esri/layers/FeatureLayer"], 
+      function(esriConfig, Map, MapView, Graphic, GraphicsLaye, FeatureLayer) {
 
         esriConfig.apiKey = "AAPK02919048ebed47338bfbd0abf428e9e8GryYyuFVKCFW6iZiZ0-5PWjbHZ3O7E1aaHxNRrgJKoFe7de1tPC773rKuhEJAFcb";
 
@@ -42,19 +39,20 @@
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
+//  todo add tips and update csv and popup when to visit
+        const popupAmsterdamLocations = {
+        "title": "Amsterdam photo spot",
+        "content": "<b>Spot:</b> {NAME}<br><b>Address:</b> {ADDRESS}<br><b>Type:</b> {TYPE}<br>"
+      }
 
-        // const graphicsLayer = new GraphicsLayer();
-        // map.add(graphicsLayer);
+        const layer = new FeatureLayer({
+            url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsterdamlocations/FeatureServer/0",
+            outFields: ["NAME","ADDRESS","TYPE"],
+            popupTemplate: popupAmsterdamLocations
 
-        csv = new CSVLayer("D:\ACS-CTI\anul4\sem1\isi\proiect\amsteram-locations.csv", {
-          copyright: "ISI PROJECT"
         });
-        var orangeRed = new Color([238, 69, 0, 0.5]); // hex is #ff4500
-        var marker = new SimpleMarkerSymbol("solid", 15, null, orangeRed);
-        var renderer = new SimpleRenderer(marker);
-        // csv.setRenderer(renderer);
-        //  todo add layer
-        map.addLayer(csv);
+        map.add(layer, 0);
+        
       });
     </script>
 
