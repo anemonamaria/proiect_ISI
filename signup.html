@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amsterdam Authentication</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    
+
+    <div class="center-box">
+      <div class="container">
+
+        <div class="top">
+          <header>Register</header>
+        </div>
+
+        <div class = "input-field">
+          <input type="text" id="username" class="input" name="username" placeholder="Username" />
+        </div>
+
+        <div class = "input-field">
+          <input type="email" id="email" class="input" name="email" placeholder="E-mail" />
+        </div>
+        
+        <div class = "input-field">
+          <input type="password" id="password" class="input" name="password" placeholder="Password" />
+        </div>
+        
+        <div class = "input-field">
+          <button id="signUp" class="submit">Register</button>
+        </div>
+        <div class="reg">Already have an account?
+          <a href="signin.html">Login</a>
+        </div>
+       
+        
+      </div>
+    </div>
+    
+
+  </body>
+
+
+  <script type="module">
+
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    
+      const firebaseConfig = {
+        apiKey: "AIzaSyBCrGu6NRjoIkjQ4666T_ag6tqSUpzXViQ",
+        authDomain: "amsterdam-authentication.firebaseapp.com",
+        databaseURL: "https://amsterdam-authentication-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "amsterdam-authentication",
+        storageBucket: "amsterdam-authentication.appspot.com",
+        messagingSenderId: "585931005379",
+        appId: "1:585931005379:web:0606a8f7bf0ad141493176"
+      };
+    
+  
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth();
+
+      signUp.addEventListener('click',(e) => {
+
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          var username = document.getElementById('username').value;
+
+          createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+      
+                const user = userCredential.user;
+                set(ref(database, 'users/'+ user.uid),{
+                  username:username,
+                  email:email
+                })
+                alert('User created!');
+                window.location.assign("signin.html");
+
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                alert(errorMessage);
+    
+              });
+      });
+
+      </script>
+  </html>
