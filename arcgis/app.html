@@ -99,14 +99,76 @@ require([
           url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsterdamlocations/FeatureServer/0",
           outFields: ["NAME","ADDRESS","TYPE"],
           popupTemplate: popupAmsterdamLocations
+      });
 
+      const layerIndoorNight = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_indoor_night/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerOutdoorNight = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_night/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerNight = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_night/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerIndoorNoon = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon_indoor/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerOutdoorNoon = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_noon/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerNoon = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerMorning = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerIndoorMorning = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_indoor/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
+      });
+
+      const layerOutdoorMorning = new FeatureLayer({
+          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_outdoor/FeatureServer/0",
+          outFields: ["NAME","ADDRESS","TYPE"],
+          popupTemplate: popupAmsterdamLocations,
+          visible: false,
       });
 
    var typeGroupLayer = new GroupLayer({
     title: "Attractions by type (indoor, outdoor, both)",
     visible: true,
     visibilityMode: "exclusive",
-    layers: [layerOutdoor, layerIndoor, layer],
+    layers: [layerOutdoor, layerIndoor, layer, layerIndoorNight, layerOutdoorNight, layerNight, layerIndoorNoon, layerOutdoorNoon, layerNoon, layerIndoorMorning, layerOutdoorMorning, layerMorning],
     opacity: 0.75
   });
 
@@ -183,11 +245,29 @@ require([
       var visibleLayer
       // = morningLayer.visible ? morningLayer : eveningLayer;
 if (layer.visible) {
-          visibleLayer = morningLayer
+          visibleLayer = layer
       } else if (layerIndoor.visible) {
       visibleLayer = layerIndoor
-      } else {
+      } else if(layerOutdoor.visible) {
       visibleLayer = layerOutdoor
+      } else if(layerIndoorNight.visible) {
+        visibleLayer = layerIndoorNight
+      } else if(layerOutdoorNight.visible) {
+        visibleLayer = layerOutdoorNight
+      } else if (layerNight.visible) {
+        visibleLayer = layerNight
+      } else if (layerIndoorNoon.visible) {
+        visibleLayer = layerIndoorNoon
+      } else if (layerOutdoorNoon.visible) {
+        visibleLayer = layerOutdoorNoon
+      } else if (layerNoon.visible) {
+        visibleLayer = layerNoon
+      } else if (layerIndoorMorning.visible) {
+        visibleLayer = layerIndoorMorning
+      } else if (layerOutdoorMorning.visible) {
+        visibleLayer = layerOutdoorMorning
+      } else if (layerMorning.visible) {
+        visibleLayer = layerMorning
       }
       // Capture the action id.
       var id = event.action.id;

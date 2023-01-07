@@ -1,0 +1,11 @@
+﻿OBJECTID,LONGITUDE,LATITUDE,ADDRESS,NAME,LON,LAT,MORNING,NOON,NIGHT,TIPS,TYPE
+2,4.886196218,52.37028328," Wolvenstraat 9, 1016 EM Amsterdam, Nederland",De 9 Straatjes,,,1,1,1,,outdoor
+3,4.914165372,52.3542341,"Platanenweg, 1091 KS Amsterdam, Țările de Jos",Street Art Platanenweg,,,1,1,1,,outdoor
+6,4.888072103,52.38561728,"Prinseneiland 2, 1013 LR Amsterdam, Nederland",Quartier marecages,,,1,1,1,,outdoor
+13,4.898206043,52.37437875,"Oudekerksplein 23, 1012 GX Amsterdam, Nederland",Oude Kerk,,,1,1,1,,outdoor
+14,4.915963517,52.36625998,"Plantage Kerklaan 38-40, 1018 CZ Amsterdam, Nederland",Artis,,,1,1,0,,outdoor
+15,4.895407884,52.35497842,"Sarphatipark 37I, 1073 CP Amsterdam, Nederland",Sarphatipark,,,1,1,1,,outdoor
+16,4.852742283,52.37349982,"Jan van Galenstraat, Amsterdam, Nederland",Erasmuspark,,,1,1,1,,outdoor
+26,4.891038456,52.37316712,"Nieuwezijds Voorburgwal 147, 1012 RJ Amsterdam, Nederland",Paleis op de Dam,,,1,1,1,,outdoor
+28,4.896864408,52.36626534,"1017 CT Amsterdam, Nederland",Remrandtplein,,,1,1,1,,outdoor
+29,4.905631354,52.37201063,"Oudeschans 2, 1011 KX Amsterdam, Nederland",Montelbaanstoren,,,1,1,1,,outdoor

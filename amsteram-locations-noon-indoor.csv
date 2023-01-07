@@ -1,0 +1,20 @@
+﻿OBJECTID,LONGITUDE,LATITUDE,ADDRESS,NAME,LON,LAT,MORNING,NOON,NIGHT,TIPS,TYPE
+1,4.885135088,52.35997087,"Museumstraat 1, 1071 XX Amsterdam, Nederland",Rijksmuseum,,,1,1,0,,indoor
+4,4.881409672,52.3579139,"Museumplein 6, 1071 DJ Amsterdam,Nederland",Van Gogh Museum,,,1,1,1,,indoor
+5,4.851277126,52.39404145,"Elementenstraat 25, 1014 AR Amsterdam, Nederland",AMAZE Amsterdam,,,1,1,1,,indoor
+7,4.904390172,52.39129785,"Asterweg 22, 1031 HP Amsterdam, Nederland",Nxt Museum,,,1,1,1,,indoor
+8,4.901224363,52.36939099,"Jodenbreestraat 4, 1011 NK Amsterdam, Nederland",Rembrandt House Museum,,,1,1,0,,indoor
+9,4.893495457,52.37246618,"Dam 21, 1012 JS Amsterdam, Nederland",Ripley's Believe It or Not!,,,1,1,1,,indoor
+10,4.922375607,52.36261185,"Linnaeusstraat 2, 1092 CK Amsterdam, Nederland",Tropenmuseum,,,1,1,0,,indoor
+11,4.883746785,52.37491274,"Westermarkt 20, 1016 GV Amsterdam, Nederland",Anne Frank House Museum,,,1,1,1,,indoor
+12,4.879755561,52.35803851,"Museumplein 10, 1071 DJ Amsterdam, Nederland",Stedelijk Museum,,,1,1,0,,indoor
+17,4.87370704,52.3904593,"Oostzaanstraat 45, 1013 WG Amsterdam, Nederland",Museum Het Schip,,,1,1,0,,indoor
+18,4.90230056,52.38375746,"IJpromenade 1, 1031 KT Amsterdam, Nederland",Eye Film Museum,,,1,1,0,,indoor
+19,4.919909709,52.38543523,"Meeuwenlaan 88, 1021 JK Amsterdam, Nederland",WONDR Experience,,,1,1,0,,indoor
+20,4.914723808,52.37176382,"Kattenburgerplein 1, 1018 KK Amsterdam, Nederland",The National Maritime Museum,,,1,1,0,,indoor
+21,4.894791038,52.37480204,"Damrak 66, 1012 LM Amsterdam, Nederland",BODY WORLDS Amsterdam,,,1,1,1,,indoor
+22,4.897241843,52.37215012,"Oudezijds Achterburgwal 130, 1012 DT Amsterdam, Nederland",Hemp Gallery,,,1,1,1,,indoor
+23,4.90278178,52.36576475,"Amstel 51, 1018 DR Amsterdam, Nederland",Hermitage Amsterdam,,,1,1,0,,indoor
+24,4.903813458,52.36711915,"Nieuwe Amstelstraat 1, 1011 PL Amsterdam, Nederland",Jewish Museum,,,1,1,0,,indoor
+25,4.890264841,52.37361122,"Nieuwezijds Voorburgwal 182I, 1012 SJ Amsterdam, Nederland",Magna Plaza,,,1,1,0,,indoor
+27,4.894674689,52.36652812,"Reguliersbreestraat 26-34, 1017 CN Amsterdam, Nederland",Pathe Tuschinski,,,1,1,0,,indoor
