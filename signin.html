@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amsterdam Authentication</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  
+
+  <div class="center-box">
+    <div class="container">
+
+      <div class="top">
+        <header>Login</header>
+      </div>
+
+      <div class = "input-field">
+        <input type="email" id="email" class="input" name="email" placeholder="E-mail" />
+      </div>
+
+      <div class = "input-field">
+        <input type="password" id="password" class="input" name="password" placeholder="Password" />
+      </div>
+
+      <div class = "input-field">
+        <button id="signin" class="submit" name="signin">Login</button><br>
+      </div>
+      <div class="reg">Don't have an account yet?
+        <a href="signup.html">Register</a>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import {getDatabase, update, ref} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBCrGu6NRjoIkjQ4666T_ag6tqSUpzXViQ",
+      authDomain: "amsterdam-authentication.firebaseapp.com",
+      databaseURL: "https://amsterdam-authentication-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "amsterdam-authentication",
+      storageBucket: "amsterdam-authentication.appspot.com",
+      messagingSenderId: "585931005379",
+      appId: "1:585931005379:web:0606a8f7bf0ad141493176"
+    };
+  
+ 
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    signin.addEventListener('click',(e) => {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+   
+          const user = userCredential.user;
+          const dt = new Date();
+          update(ref(database, 'users/'+ user.uid),{
+                last_signin:dt,   
+            })
+          alert("Login successfully. Welcome!");
+          window.location.assign("./arcgis/app.html");
+         
+    
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+
+    });
+
+    </script>
+  </html>
