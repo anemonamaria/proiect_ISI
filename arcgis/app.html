@@ -73,98 +73,142 @@ require([
   let floodLayerView;
 
 
-      const popupAmsterdamLocations = {
-          "title": "Amsterdam photo spot",
-          "content": "<b>Spot:</b> {NAME}<br><b>Address:</b> {ADDRESS}<br><b>Type:</b> {TYPE}<br>"
-        }
+  const outdoorRenderer = {
+   "type": "simple",
+   "symbol": {
+     "type": "picture-marker",
+     "url": "http://static.arcgis.com/images/Symbols/OutdoorRecreation/Sunny.png",
+     "width": "18px",
+     "height": "18px"
+   }
+ }
+
+  const indoorRenderer = {
+    "type": "simple",
+    "symbol": {
+      "type": "picture-marker",
+      "url": "http://static.arcgis.com/images/Symbols/PeoplePlaces/Housing.png",
+      "width": "18px",
+      "height": "18px"
+    }
+  }
+
+  const allTypesRenderer = {
+    "type": "simple",
+    "symbol": {
+      "type": "picture-marker",
+      "url": "http://static.arcgis.com/images/Symbols/Basic/LightBlueShinyPin.png",
+      "width": "18px",
+      "height": "18px"
+    }
+  }
+
+      
+
+   const popupAmsterdamLocations = {
+     "title": "Amsterdam photo spot",
+     "content": "<b>Spot:</b> {NAME}<br><b>Address:</b> {ADDRESS}<br><b>Type:</b> {TYPE}<br>"
+   }
 
 
-        const layerOutdoor = new FeatureLayer({
-            url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsteramlocationsoutdoor/FeatureServer/0",
-            outFields: ["NAME","ADDRESS","TYPE"],
-            popupTemplate: popupAmsterdamLocations,
+  const layerOutdoor = new FeatureLayer({
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsteramlocationsoutdoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: outdoorRenderer,
+  });
+
+  const layerIndoor = new FeatureLayer({
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsteramlocationsindoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: indoorRenderer,
+  });
+
+  const layer = new FeatureLayer({
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsterdamlocations/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      renderer: allTypesRenderer,
+      
+  });
+
+  const layerIndoorNight = new FeatureLayer({
+    url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_indoor_night/FeatureServer/0",
+    outFields: ["NAME","ADDRESS","TYPE"],
+    popupTemplate: popupAmsterdamLocations,
     visible: false,
+    renderer: indoorRenderer,
+  });
 
-        });
+  const layerOutdoorNight = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_night/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: outdoorRenderer,
+  });
 
-      const layerIndoor = new FeatureLayer({
-          url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsteramlocationsindoor/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-    visible: false,
+  const layerNight = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_night/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: allTypesRenderer,
 
-      });
+   });
 
-      const layer = new FeatureLayer({
-          url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsterdamlocations/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations
-      });
+  const layerIndoorNoon = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon_indoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: indoorRenderer,
+  });
 
-      const layerIndoorNight = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_indoor_night/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
+  const layerOutdoorNoon = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_noon/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: outdoorRenderer,
+  });
 
-      const layerOutdoorNight = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_night/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
+  const layerNoon = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: allTypesRenderer,
+  });
 
-      const layerNight = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_night/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
+  const layerMorning = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: allTypesRenderer,
+  });
 
-      const layerIndoorNoon = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon_indoor/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
+  const layerIndoorMorning = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_indoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: indoorRenderer,
+  });
 
-      const layerOutdoorNoon = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_noon/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
+  const layerOutdoorMorning = new FeatureLayer({
+      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_outdoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE"],
+      popupTemplate: popupAmsterdamLocations,
+      visible: false,
+      renderer: outdoorRenderer,
+  });
 
-      const layerNoon = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
-
-      const layerMorning = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
-
-      const layerIndoorMorning = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_indoor/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
-
-      const layerOutdoorMorning = new FeatureLayer({
-          url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_outdoor/FeatureServer/0",
-          outFields: ["NAME","ADDRESS","TYPE"],
-          popupTemplate: popupAmsterdamLocations,
-          visible: false,
-      });
-
-   var typeGroupLayer = new GroupLayer({
+  var typeGroupLayer = new GroupLayer({
     title: "Attractions by type (indoor, outdoor, both)",
     visible: true,
     visibilityMode: "exclusive",
@@ -172,6 +216,7 @@ require([
     opacity: 0.75
   });
 
+  
   var webmap = new WebMap({
 
     layers: [typeGroupLayer],
@@ -244,12 +289,12 @@ require([
       // The layer visible in the view at the time of the trigger.
       var visibleLayer
       // = morningLayer.visible ? morningLayer : eveningLayer;
-if (layer.visible) {
+      if (layer.visible) {
           visibleLayer = layer
       } else if (layerIndoor.visible) {
-      visibleLayer = layerIndoor
+        visibleLayer = layerIndoor
       } else if(layerOutdoor.visible) {
-      visibleLayer = layerOutdoor
+        visibleLayer = layerOutdoor
       } else if(layerIndoorNight.visible) {
         visibleLayer = layerIndoorNight
       } else if(layerOutdoorNight.visible) {
@@ -273,8 +318,6 @@ if (layer.visible) {
       var id = event.action.id;
 
       if (id === "full-extent") {
-        // if the full-extent action is triggered then navigate
-        // to the full extent of the visible layer
 
         view.goTo(visibleLayer.fullExtent).catch(function (error) {
           if (error.name != "AbortError") {
@@ -282,19 +325,13 @@ if (layer.visible) {
           }
         });
       } else if (id === "information") {
-        // if the information action is triggered, then
-        // open the item details page of the service layer
         window.open(visibleLayer.url);
       } else if (id === "increase-opacity") {
-        // if the increase-opacity action is triggered, then
-        // increase the opacity of the GroupLayer by 0.25
 
         if (typeGroupLayer.opacity < 1) {
           typeGroupLayer.opacity += 0.25;
         }
       } else if (id === "decrease-opacity") {
-        // if the decrease-opacity action is triggered, then
-        // decrease the opacity of the GroupLayer by 0.25
 
         if (typeGroupLayer.opacity > 0) {
           typeGroupLayer.opacity -= 0.25;
@@ -302,71 +339,59 @@ if (layer.visible) {
       }
     });
 
+
     // Add widget to the top right corner of the view
     view.ui.add(layerList, "top-right");
     const legend = new Expand({
-    content: new Legend({
+      content: new Legend({
+        view: view,
+        style: "classic" // other styles include 'classic'
+      }),
       view: view,
-      style: "classic" // other styles include 'classic'
-    }),
-    view: view,
-    expanded: true
-  });
-
-
-view.ui.add(legend, "top-left");
-typeGroupLayer.layers.every(function(element){
-  var seasonsNodes = document.querySelectorAll(`.type-item`);
-var  seasonsElement = document.getElementById("types-filter");
-
-  // click event handler for seasons choices
-  seasonsElement.addEventListener("click", filterBySeason);
-
-  // User clicked on Winter, Spring, Summer or Fall
-  // set an attribute filter on flood warnings layer view
-  // to display the warnings issued in that season
-
-  function filterBySeason(event) {
-    var selectedSeason = event.target.getAttribute("data-type");
-    floodLayerView.filter = {
-      where: "Type = '" + selectedSeason + "'"
-    };
-  }
-
-  view.whenLayerView(element).then(function (layerView) {
-    floodLayerView = layerView;
-    seasonsElement.style.visibility = "visible";
-    var seasonsExpand = new Expand({
-      view: view,
-      content: seasonsElement,
-      expandIconClass: "esri-icon-filter",
-      group: "top-left"
-    });
-    seasonsExpand.watch("expanded", function () {
-      if (!seasonsExpand.expanded) {
-        floodLayerView.filter = null;
-      }
+      expanded: true
     });
 
-    view.ui.add(seasonsExpand, "top-left");
 
+  view.ui.add(legend, "top-left");
+  typeGroupLayer.layers.every(function(element){
+    var seasonsNodes = document.querySelectorAll(`.type-item`);
+    var  seasonsElement = document.getElementById("types-filter");
 
+    seasonsElement.addEventListener("click", filterBySeason);
 
+    function filterBySeason(event) {
+      var selectedSeason = event.target.getAttribute("data-type");
+      floodLayerView.filter = {
+        where: "Type = '" + selectedSeason + "'"
+      };
+    }
 
+    view.whenLayerView(element).then(function (layerView) {
+      floodLayerView = layerView;
+      seasonsElement.style.visibility = "visible";
+      var seasonsExpand = new Expand({
+        view: view,
+        content: seasonsElement,
+        expandIconClass: "esri-icon-filter",
+        group: "top-left"
+      });
+      seasonsExpand.watch("expanded", function () {
+        if (!seasonsExpand.expanded) {
+          floodLayerView.filter = null;
+        }
+      });
+
+      view.ui.add(seasonsExpand, "top-left");
+    });
   });
-});
 
-view.ui.add("titleDiv", "bottom-left");
+  view.ui.add("titleDiv", "bottom-left");
 
-           var directionsWidget = new Directions({
-    view: view,
-    // Point the URL to a valid route service that uses an
-    // ArcGIS Online hosted service proxy instead of the default service
-    routeServiceUrl:
-"https://utility.arcgis.com/usrsvcs/appservices/kv85zENFGmJpK3YU/rest/services/World/Route/NAServer/Route_World"
-
-
-  });
+    var directionsWidget = new Directions({
+      view: view,
+      routeServiceUrl:
+      "https://utility.arcgis.com/usrsvcs/appservices/kv85zENFGmJpK3YU/rest/services/World/Route/NAServer/Route_World"
+    });
     view.ui.add(directionsWidget, {
     position: "top-right"
   });
@@ -377,17 +402,29 @@ view.ui.add("titleDiv", "bottom-left");
   </head>
   <body>
     <div id="types-filter" class="esri-widget"> 
-      <!--  todo make these filters work -->
-      <div class="type-item visible-item" data-type="Morning">Morning</div>
-      <div class="type-item visible-item" data-type="Noon">Noon</div>
-      <div class="type-item visible-item" data-type="Night">Night</div>
+      <div class="type-item visible-item" data-type="Indoor">Indoor
+        <img src="http://static.arcgis.com/images/Symbols/PeoplePlaces/Housing.png" width="15" height="15">
+      </div>
+      <div class="type-item visible-item" data-type="Oudoor">Outdoor
+        <img src="http://static.arcgis.com/images/Symbols/OutdoorRecreation/Sunny.png" width="15" height="15">
+      </div>
+      <div class="type-item visible-item" data-type="Both">Both
+        <img src="http://static.arcgis.com/images/Symbols/Basic/LightBlueShinyPin.png" width="15" height="15">
+      </div>
     </div> 
     <div id="viewDiv"></div>
     <div id="titleDiv" class="esri-widget">
-      <div id="titleText">Amsterdam locations</div>
+      <div id="titleText">Amsterdam photo spots</div>
+      <div>You can choose what type of locations to appear on map, you can also make a route between 2 and more points.</div>
+      <div>Click on a point and you can see details about the location.</div>
       <div>Amsterdam 2023</div>
     </div>
   </body>
 </html>
 
-<!--  todo add login / register page with firebase -->
+<!--  todo 
+  add graphic layer 2-3
+ add real time location
+mai multe puncte
+pop-up uri mai pline + poze
+ -->
