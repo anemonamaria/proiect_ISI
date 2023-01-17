@@ -230,6 +230,67 @@ require([
     zoom: 13
   });
 
+  const graphicsLayer = new GraphicsLayer({title: "Center of Amsterdam"});
+  webmap.add(graphicsLayer);
+  
+  const point = { //Create a point
+    type: "point",
+    longitude: 4.907144,
+    latitude: 52.3754
+ };
+ const simpleMarkerSymbol = {
+    type: "simple-marker",
+    color: [226, 119, 40],  // Orange
+    outline: {
+        color: [255, 255, 255], // White
+        width: 1
+    }
+ };
+
+ const pointGraphic = new Graphic({
+    geometry: point,
+    symbol: simpleMarkerSymbol
+ });
+ graphicsLayer.add(pointGraphic);
+
+ const polygon = {
+    type: "polygon",
+    rings: [
+        [4.846258, 52.407085], //Longitude, latitude
+        [4.962932, 52.402754], //Longitude, latitude
+        [4.962623, 52.342640], //Longitude, latitude
+        [4.842246, 52.346034],   //Longitude, latitude
+        [4.797181, 52.388251]  //Longitude, latitude
+    ]
+ };
+
+ const simpleFillSymbol = {
+    type: "simple-fill",
+    color: [227, 139, 79, 0.1],  // Orange, opacity 80%
+    outline: {
+        color: [255, 255, 255],
+        width: 1
+    }
+ };
+
+ const popupTemplate = {
+    title: "{Area of Amsterdam City}",
+    content: "{Amsterdam is the capital and most populous city of the Netherlands. It is known for its historic canals, beautiful architecture, and lively atmosphere. The city is home to many famous museums, including the Van Gogh Museum and the Rijksmuseum, as well as a thriving cultural scene with many theaters, music venues, and restaurants. Amsterdam is also a popular tourist destination, known for its picturesque streets, charming cafés, and vibrant nightlife. Amsterdam is a bike-friendly city, with many bike lanes and rental options, making it easy to explore the city on two wheels. Overall, Amsterdam is a beautiful, cosmopolitan city with a rich history and culture, and is definitely worth visiting.}"
+ }
+ const attributes = {
+    Name: "Graphic",
+    Description: "I am a polygon"
+ }
+
+ const polygonGraphic = new Graphic({
+    geometry: polygon,
+    symbol: simpleFillSymbol,
+
+    attributes: attributes,
+    popupTemplate: popupTemplate
+
+ });
+ graphicsLayer.add(polygonGraphic);
 
   function defineActions(event) {
     // The event object contains an item property.
