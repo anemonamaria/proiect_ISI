@@ -107,53 +107,53 @@ require([
 
    const popupAmsterdamLocations = {
      "title": "Amsterdam photo spot",
-     "content": "<b>Spot:</b> {NAME}<br><b>Address:</b> {ADDRESS}<br><b>Type:</b> {TYPE}<br>"
+     "content": "<b>Spot:</b> {NAME}<br><b>Address:</b> {ADDRESS}<br><b>Type:</b> {TYPE}<br> <b>Description:</b> {TIPS}<br> <img src='${PHOTO}' width='200px'/>"
    }
 
 
   const layerOutdoor = new FeatureLayer({
-      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsteramlocationsoutdoor/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/outdoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: outdoorRenderer,
   });
 
   const layerIndoor = new FeatureLayer({
-      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsteramlocationsindoor/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+    url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/indoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: indoorRenderer,
   });
 
   const layer = new FeatureLayer({
-      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/amsterdamlocations/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/all_locations/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       renderer: allTypesRenderer,
       
   });
 
   const layerIndoorNight = new FeatureLayer({
-    url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_indoor_night/FeatureServer/0",
-    outFields: ["NAME","ADDRESS","TYPE"],
+    url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/indoor_night/FeatureServer/0",
+    outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
     popupTemplate: popupAmsterdamLocations,
     visible: false,
     renderer: indoorRenderer,
   });
 
   const layerOutdoorNight = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_night/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+    url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/night_outdoor/FeatureServer/0",
+    outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: outdoorRenderer,
   });
 
   const layerNight = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_night/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/night/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: allTypesRenderer,
@@ -161,48 +161,48 @@ require([
    });
 
   const layerIndoorNoon = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon_indoor/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/indoor_noon/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: indoorRenderer,
   });
 
   const layerOutdoorNoon = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_outdoor_noon/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+    url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/noon_outdoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: outdoorRenderer,
   });
 
   const layerNoon = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_noon/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/noon/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: allTypesRenderer,
   });
 
   const layerMorning = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/morning/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: allTypesRenderer,
   });
 
   const layerIndoorMorning = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_indoor/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+      url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/indoor_morning/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: indoorRenderer,
   });
 
   const layerOutdoorMorning = new FeatureLayer({
-      url: "https://services.arcgis.com/GITr6UCV3bhY1az9/arcgis/rest/services/amsterdam_locations_morning_outdoor/FeatureServer/0",
-      outFields: ["NAME","ADDRESS","TYPE"],
+    url: "https://services7.arcgis.com/MJ49ITIfNNDoBpyy/arcgis/rest/services/morning_outdoor/FeatureServer/0",
+      outFields: ["NAME","ADDRESS","TYPE", "TIPS", "PHOTO"],
       popupTemplate: popupAmsterdamLocations,
       visible: false,
       renderer: outdoorRenderer,
